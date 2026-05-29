@@ -1,0 +1,38 @@
+# Copie este arquivo para application-local.yml antes de rodar o projeto:
+#   cp application-local.yml.example application-local.yml
+#
+# O application-local.yml NAO deve ser commitado (esta no .gitignore).
+# Aqui ficam todas as configuracoes de infraestrutura e credenciais locais.
+
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mensageria
+    username: mensageria
+    password: mensageria
+    driver-class-name: org.postgresql.Driver
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 2525
+    username: SEU_USUARIO_SMTP_MAILTRAP
+    password: SUA_SENHA_SMTP_MAILTRAP
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+app:
+  mail:
+    from: mensageria@puc.local
+    send-delay-ms: 2000  # Mailtrap free: ~1 e-mail/segundo; retry trata rate limit
