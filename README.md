@@ -188,22 +188,3 @@ $env:JAVA_HOME = "C:\Program Files\Java\jdk-21.0.11"
 | GET | `/api/jobs` | Histórico de envios |
 | GET | `/api/jobs/{id}` | Detalhe de um job |
 
-## Evidências para entrega
-
-1. **Front-end** — cadastro de destinatários, mensagens e envio
-2. **RabbitMQ** — fila `email.send.queue` no painel (http://localhost:15672)
-3. **Banco de dados** — tabelas `recipients`, `email_messages`, `send_jobs`
-4. **Logs** — consumer processando mensagens no console
-5. **Mailtrap** — e-mails recebidos na inbox de teste
-
-## Roteiro sugerido para o vídeo
-
-1. Mostrar arquitetura (diagrama ou README)
-2. Subir Docker e aplicação
-3. Cadastrar destinatários e criar mensagem no front-end
-4. Solicitar envio e mostrar resposta imediata (202)
-5. Mostrar mensagem na fila RabbitMQ
-6. Mostrar consumer processando nos logs
-7. Mostrar job `COMPLETED` na aba Envios
-8. Mostrar e-mail no Mailtrap
-9. Citar classes principais (Producer, Consumer, Config)
